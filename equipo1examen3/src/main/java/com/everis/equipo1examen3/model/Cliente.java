@@ -85,7 +85,7 @@ public class Cliente implements java.io.Serializable {
 		this.longitud = longitud;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cliente")
 	public Set<Pedido> getPedidos() {
 		return this.pedidos;
 	}

@@ -27,7 +27,7 @@ public class Producto implements java.io.Serializable {
 	private String nombre;
 	private String precio;
 	private String url;
-	@JsonIgnore
+	//@JsonIgnore
 	private Set<Productosdelpedido> productosdelpedidos = new HashSet<Productosdelpedido>(0);
 
 	public Producto() {
@@ -85,7 +85,7 @@ public class Producto implements java.io.Serializable {
 		this.url = url;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "producto")
 	public Set<Productosdelpedido> getProductosdelpedidos() {
 		return this.productosdelpedidos;
 	}
