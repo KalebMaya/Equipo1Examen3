@@ -9,7 +9,6 @@ import com.everis.equipo1examen3enviarnotificaciones.model.MensajeCliente;
 import com.everis.equipo1examen3enviarnotificaciones.model.UbicacionCliente;
 
 @FeignClient(name="whatsapp-proxy", url = "https://whatzmeapi.com:10501")
-//@RibbonClient(name="PRACTICA-CLOUD-INVENTARIO-REST")
 public interface WhatsappProxy {
 	@PostMapping("/rest/api/enviar-mensaje/?token={token}")
 	public String enviarmensaje(@PathVariable String token, @RequestBody MensajeCliente cliente);
