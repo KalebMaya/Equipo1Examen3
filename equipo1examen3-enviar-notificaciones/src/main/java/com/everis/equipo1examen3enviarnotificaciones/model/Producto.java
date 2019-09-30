@@ -12,7 +12,6 @@ public class Producto implements java.io.Serializable {
 	private String nombre;
 	private String precio;
 	private String url;
-	private Set<Productosdelpedido> productosdelpedidos = new HashSet<Productosdelpedido>(0);
 
 	public Producto() {
 	}
@@ -27,7 +26,6 @@ public class Producto implements java.io.Serializable {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.url = url;
-		this.productosdelpedidos = productosdelpedidos;
 	}
 
 	public Integer getId() {
@@ -60,14 +58,6 @@ public class Producto implements java.io.Serializable {
 
 	public void setUrl(String url) {
 		this.url = url;
-	}
-
-	public Set<Productosdelpedido> getProductosdelpedidos() {
-		return this.productosdelpedidos;
-	}
-
-	public void setProductosdelpedidos(Set<Productosdelpedido> productosdelpedidos) {
-		this.productosdelpedidos = productosdelpedidos;
 	}
 
 }

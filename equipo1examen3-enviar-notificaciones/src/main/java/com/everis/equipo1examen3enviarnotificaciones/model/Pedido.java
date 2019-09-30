@@ -1,11 +1,9 @@
 package com.everis.equipo1examen3enviarnotificaciones.model;
 // Generated 27/09/2019 12:48:57 PM by Hibernate Tools 5.2.12.Final
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
 
 public class Pedido implements java.io.Serializable {
 
@@ -13,7 +11,7 @@ public class Pedido implements java.io.Serializable {
 	private Cliente cliente;
 	private Date fecharegistro;
 	private Date fechaentrega;
-	private Set<Productosdelpedido> productosdelpedidos = new HashSet<Productosdelpedido>(0);
+	private List<Productosdelpedido> productosdelpedidos = new ArrayList<Productosdelpedido>(0);
 
 	public Pedido() {
 	}
@@ -24,7 +22,7 @@ public class Pedido implements java.io.Serializable {
 		this.fechaentrega = fechaentrega;
 	}
 
-	public Pedido(Cliente cliente, Date fecharegistro, Date fechaentrega, Set<Productosdelpedido> productosdelpedidos) {
+	public Pedido(Cliente cliente, Date fecharegistro, Date fechaentrega, List<Productosdelpedido> productosdelpedidos) {
 		this.cliente = cliente;
 		this.fecharegistro = fecharegistro;
 		this.fechaentrega = fechaentrega;
@@ -63,11 +61,11 @@ public class Pedido implements java.io.Serializable {
 		this.fechaentrega = fechaentrega;
 	}
 
-	public Set<Productosdelpedido> getProductosdelpedidos() {
+	public List<Productosdelpedido> getProductosdelpedidos() {
 		return this.productosdelpedidos;
 	}
 
-	public void setProductosdelpedidos(Set<Productosdelpedido> productosdelpedidos) {
+	public void setProductosdelpedidos(List<Productosdelpedido> productosdelpedidos) {
 		this.productosdelpedidos = productosdelpedidos;
 	}
 
