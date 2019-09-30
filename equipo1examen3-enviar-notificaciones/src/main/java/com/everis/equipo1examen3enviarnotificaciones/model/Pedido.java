@@ -11,7 +11,7 @@ public class Pedido implements java.io.Serializable {
 	private Cliente cliente;
 	private Date fecharegistro;
 	private Date fechaentrega;
-	private List<Productosdelpedido> productosdelpedidos = new ArrayList<Productosdelpedido>(0);
+//	private List<Productosdelpedido> productosdelpedidos = new ArrayList<Productosdelpedido>(0);
 
 	public Pedido() {
 	}
@@ -22,12 +22,12 @@ public class Pedido implements java.io.Serializable {
 		this.fechaentrega = fechaentrega;
 	}
 
-	public Pedido(Cliente cliente, Date fecharegistro, Date fechaentrega, List<Productosdelpedido> productosdelpedidos) {
-		this.cliente = cliente;
-		this.fecharegistro = fecharegistro;
-		this.fechaentrega = fechaentrega;
-		this.productosdelpedidos = productosdelpedidos;
-	}
+//	public Pedido(Cliente cliente, Date fecharegistro, Date fechaentrega, List<Productosdelpedido> productosdelpedidos) {
+//		this.cliente = cliente;
+//		this.fecharegistro = fecharegistro;
+//		this.fechaentrega = fechaentrega;
+//		this.productosdelpedidos = productosdelpedidos;
+//	}
 
 	public Integer getId() {
 		return this.id;
@@ -61,12 +61,12 @@ public class Pedido implements java.io.Serializable {
 		this.fechaentrega = fechaentrega;
 	}
 
-	public List<Productosdelpedido> getProductosdelpedidos() {
-		return this.productosdelpedidos;
-	}
-
-	public void setProductosdelpedidos(List<Productosdelpedido> productosdelpedidos) {
-		this.productosdelpedidos = productosdelpedidos;
-	}
+//	public List<Productosdelpedido> getProductosdelpedidos() {
+//		return this.productosdelpedidos;
+//	}
+//
+//	public void setProductosdelpedidos(List<Productosdelpedido> productosdelpedidos) {
+//		this.productosdelpedidos = productosdelpedidos;
+//	}
 
 }

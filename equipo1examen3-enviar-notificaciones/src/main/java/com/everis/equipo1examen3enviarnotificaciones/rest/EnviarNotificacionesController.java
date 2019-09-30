@@ -46,39 +46,38 @@ public class EnviarNotificacionesController {
 	}
 	
 	@PostMapping("/pedido/idproductos/{idproductos}")
-	public Pedido convert(@PathVariable String idproductos, @RequestBody Pedido pedido) {
+	public String convert(@PathVariable String idproductos, @RequestBody Pedido pedido) {
 		Pedido pedidoinsertado = productosProxy.insertaPedido(pedido);
 		String[] listaproductos = idproductos.split(",");
-		return pedidoinsertado;
-//		String respuesta = "";
-//		for (String idproducto : listaproductos) {
-//				Integer.parseInt(idproducto);
-//				Productosdelpedido productosdelpedido = new Productosdelpedido();
-//				Producto producto = new Producto();
-//				producto.setId(Integer.parseInt(idproducto));
-//				productosdelpedido.setPedido(pedidoinsertado);
-//				productosdelpedido.setProducto(producto);
-//				respuesta += "producto: " + productosProxy.insertaProductoPedido(productosdelpedido).getProducto().getNombre() + ",";
-//			}
-//			try {
-//			if(tiponotificacion.equals("whatsapp") || tiponotificacion.equals("ambas")) {
-//				MensajeCliente mensaje = new MensajeCliente();
-//				mensaje.setMensaje(respuesta);
-//				mensaje.setNumero(whatsappdestino);
-//				UbicacionCliente ubicacion = new UbicacionCliente();
-//				ubicacion.setDireccion("Casa de " + pedido.getCliente().getNombre());
-//				ubicacion.setLatitud(pedido.getCliente().getLatitud());
-//				ubicacion.setLongitud(pedido.getCliente().getLongitud());
-//				ubicacion.setNumero(whatsappdestino);
-//				whatsappProxy.enviarubicacion(whatzmeapitoken, ubicacion);
-//				whatsappProxy.enviarmensaje(whatzmeapitoken, mensaje);
-//			}if(tiponotificacion.equals("email") || tiponotificacion.equals("ambas")) {
-//				servicioEmail.enviarCorreo(emaildestino, "Productos comprados", respuesta);
-//			}
-//			return respuesta;
-//		} catch (Exception e) {
-//			return e.getMessage();
-//		}
+		String respuesta = "";
+		for (String idproducto : listaproductos) {
+				Integer.parseInt(idproducto);
+				Productosdelpedido productosdelpedido = new Productosdelpedido();
+				Producto producto = new Producto();
+				producto.setId(Integer.parseInt(idproducto));
+				productosdelpedido.setPedido(pedidoinsertado);
+				productosdelpedido.setProducto(producto);
+				respuesta += "producto: " + productosProxy.insertaProductoPedido(productosdelpedido).getProducto().getNombre() + ",";
+			}
+			try {
+			if(tiponotificacion.equals("whatsapp") || tiponotificacion.equals("ambas")) {
+				MensajeCliente mensaje = new MensajeCliente();
+				mensaje.setMensaje(respuesta);
+				mensaje.setNumero(whatsappdestino);
+				UbicacionCliente ubicacion = new UbicacionCliente();
+				ubicacion.setDireccion("Casa de " + pedido.getCliente().getNombre());
+				ubicacion.setLatitud(pedido.getCliente().getLatitud());
+				ubicacion.setLongitud(pedido.getCliente().getLongitud());
+				ubicacion.setNumero(whatsappdestino);
+				whatsappProxy.enviarubicacion(whatzmeapitoken, ubicacion);
+				whatsappProxy.enviarmensaje(whatzmeapitoken, mensaje);
+			}if(tiponotificacion.equals("email") || tiponotificacion.equals("ambas")) {
+				servicioEmail.enviarCorreo(emaildestino, "Productos comprados", respuesta);
+			}
+			return respuesta;
+		} catch (Exception e) {
+			return e.getMessage();
+		}
 	}
 	
 

@@ -1,13 +1,10 @@
 package com.everis.equipo1examen3enviarnotificaciones.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 // Generated 27/09/2019 12:48:57 PM by Hibernate Tools 5.2.12.Final
 
 public class Productosdelpedido implements java.io.Serializable {
 
 	private Integer id;
-	@JsonIgnore
 	private Pedido pedido;
 	private Producto producto;
 
