@@ -57,7 +57,7 @@ public class EnviarNotificacionesController {
 				producto.setId(Integer.parseInt(idproducto));
 				productosdelpedido.setPedido(pedidoinsertado);
 				productosdelpedido.setProducto(producto);
-				respuesta += "producto: " + productosProxy.insertaProductoPedido(productosdelpedido).getProducto().getNombre() + ",";
+				respuesta += "producto: " + productosProxy.insertaProductoPedido(productosdelpedido).getProducto().getNombre() + "\n";
 			}
 			try {
 			if(tiponotificacion.equals("whatsapp") || tiponotificacion.equals("ambas")) {
@@ -65,12 +65,12 @@ public class EnviarNotificacionesController {
 				mensaje.setMensaje(respuesta);
 				mensaje.setNumero(whatsappdestino);
 				UbicacionCliente ubicacion = new UbicacionCliente();
-				ubicacion.setDireccion("Casa de " + pedido.getCliente().getNombre());
-				ubicacion.setLatitud(pedido.getCliente().getLatitud());
-				ubicacion.setLongitud(pedido.getCliente().getLongitud());
+				ubicacion.setDireccion("Casa de " + pedidoinsertado.getCliente().getNombre());
+				ubicacion.setLatitud(pedidoinsertado.getCliente().getLatitud());
+				ubicacion.setLongitud(pedidoinsertado.getCliente().getLongitud());
 				ubicacion.setNumero(whatsappdestino);
-				whatsappProxy.enviarubicacion(whatzmeapitoken, ubicacion);
 				whatsappProxy.enviarmensaje(whatzmeapitoken, mensaje);
+				whatsappProxy.enviarubicacion(whatzmeapitoken, ubicacion);
 			}if(tiponotificacion.equals("email") || tiponotificacion.equals("ambas")) {
 				servicioEmail.enviarCorreo(emaildestino, "Productos comprados", respuesta);
 			}
