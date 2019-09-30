@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Productosdelpedido implements java.io.Serializable {
 
 	private Integer id;
-	@JsonIgnore
+	//@JsonIgnore
 	private Pedido pedido;
 	private Producto producto;
 

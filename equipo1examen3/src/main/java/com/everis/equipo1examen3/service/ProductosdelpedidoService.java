@@ -17,9 +17,8 @@ public class ProductosdelpedidoService {
 	private ProductosRepository productosrepositorio;
 	
 	public Productosdelpedido insertar(Productosdelpedido productosdelpedido) {
-//		Productosdelpedido productosrecuperados = productosdelpedidoRepository.save(productosdelpedido);
-//		productosrecuperados.setProducto(productosrepositorio.findById(productosrecuperados.getProducto().getId()).get());
-//		return productosrecuperados;
+		
+		productosdelpedido.setProducto(productosrepositorio.findById(productosdelpedido.getProducto().getId()).get());
 		return productosdelpedidoRepository.save(productosdelpedido);
 	}
 
