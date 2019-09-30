@@ -27,8 +27,8 @@ public class Producto implements java.io.Serializable {
 	private String nombre;
 	private String precio;
 	private String url;
-	//@JsonIgnore
-	private Set<Productosdelpedido> productosdelpedidos = new HashSet<Productosdelpedido>(0);
+//	//@JsonIgnore
+//	private Set<Productosdelpedido> productosdelpedidos = new HashSet<Productosdelpedido>(0);
 
 	public Producto() {
 	}
@@ -39,12 +39,12 @@ public class Producto implements java.io.Serializable {
 		this.url = url;
 	}
 
-	public Producto(String nombre, String precio, String url, Set<Productosdelpedido> productosdelpedidos) {
-		this.nombre = nombre;
-		this.precio = precio;
-		this.url = url;
-		this.productosdelpedidos = productosdelpedidos;
-	}
+//	public Producto(String nombre, String precio, String url, Set<Productosdelpedido> productosdelpedidos) {
+//		this.nombre = nombre;
+//		this.precio = precio;
+//		this.url = url;
+//		this.productosdelpedidos = productosdelpedidos;
+//	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -84,14 +84,14 @@ public class Producto implements java.io.Serializable {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "producto")
-	public Set<Productosdelpedido> getProductosdelpedidos() {
-		return this.productosdelpedidos;
-	}
-
-	public void setProductosdelpedidos(Set<Productosdelpedido> productosdelpedidos) {
-		this.productosdelpedidos = productosdelpedidos;
-	}
+//
+//	@OneToMany(fetch = FetchType.EAGER, mappedBy = "producto")
+//	public Set<Productosdelpedido> getProductosdelpedidos() {
+//		return this.productosdelpedidos;
+//	}
+//
+//	public void setProductosdelpedidos(Set<Productosdelpedido> productosdelpedidos) {
+//		this.productosdelpedidos = productosdelpedidos;
+//	}
 
 }

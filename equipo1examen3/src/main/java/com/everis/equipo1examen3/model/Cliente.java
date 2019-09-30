@@ -27,8 +27,8 @@ public class Cliente implements java.io.Serializable {
 	private String nombre;
 	private double latitud;
 	private double longitud;
-	@JsonIgnore
-	private Set<Pedido> pedidos = new HashSet<Pedido>(0);
+//	@JsonIgnore
+//	private Set<Pedido> pedidos = new HashSet<Pedido>(0);
 
 	public Cliente() {
 	}
@@ -39,12 +39,12 @@ public class Cliente implements java.io.Serializable {
 		this.longitud = longitud;
 	}
 
-	public Cliente(String nombre, double latitud, double longitud, Set<Pedido> pedidos) {
-		this.nombre = nombre;
-		this.latitud = latitud;
-		this.longitud = longitud;
-		this.pedidos = pedidos;
-	}
+//	public Cliente(String nombre, double latitud, double longitud, Set<Pedido> pedidos) {
+//		this.nombre = nombre;
+//		this.latitud = latitud;
+//		this.longitud = longitud;
+//		this.pedidos = pedidos;
+//	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -85,13 +85,13 @@ public class Cliente implements java.io.Serializable {
 		this.longitud = longitud;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cliente")
-	public Set<Pedido> getPedidos() {
-		return this.pedidos;
-	}
-
-	public void setPedidos(Set<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
+//	@OneToMany(fetch = FetchType.EAGER, mappedBy = "cliente")
+//	public Set<Pedido> getPedidos() {
+//		return this.pedidos;
+//	}
+//
+//	public void setPedidos(Set<Pedido> pedidos) {
+//		this.pedidos = pedidos;
+//	}
 
 }
